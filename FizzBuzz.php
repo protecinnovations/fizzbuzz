@@ -28,7 +28,7 @@ $options = array(
 for ($i = 0; $i < count($argv); $i++) {
     $arg = $argv[$i];
 
-    if (substr($arg, 0, 1) != '-') {
+    if (substr($arg, 0, 1) != '--') {
         continue;
     }
 
