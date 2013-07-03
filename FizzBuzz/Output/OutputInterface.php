@@ -7,7 +7,7 @@ namespace FizzBuzz\Output;
  * 
  * @package FizzBuzz\Output
  * @author Protec Innovations <support@protecinnovations.co.uk>
- * @copyright 2012 - 2013 Protec Innovations
+ * @copyright 2013 Protec Innovations
  */
 interface OutputInterface
 {
