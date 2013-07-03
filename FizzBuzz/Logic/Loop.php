@@ -15,26 +15,41 @@ class Loop
 {
 
     /**
+     * $currentNum
+     * Used to store the current number
+     * 
      * @var int
      */
     public $currentNum;
 
     /**
+     * $endNum
+     * Used to store the end number
+     * 
      * @var int
      */
     public $endNum;
 
     /**
+     * $output
+     * Used to store the output
+     * 
      * @var \FizzBuzz\Output\OutputInterface
      */
     public $output;
 
     /**
+     * $fizzNum
+     * Used to store the fizz number
+     * 
      * @var int
      */
     public $fizzNum;
 
     /**
+     * $buzzNum
+     * Used to store the buzz number
+     * 
      * @var int
      */
     public $buzzNum;

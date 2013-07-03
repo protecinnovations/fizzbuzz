@@ -16,7 +16,7 @@ class Printer implements OutputInterface
 
     const BUZZ_WORD = 'Buzz';
     const FIZZ_WORD = 'Fizz';
-    
+
     /**
      * buzz
      * 
@@ -55,7 +55,7 @@ class Printer implements OutputInterface
     {
         $this->printVar(self::FIZZ_WORD . self::BUZZ_WORD);
     }
-    
+
     /**
      * printVar
      * Echo formatted line
