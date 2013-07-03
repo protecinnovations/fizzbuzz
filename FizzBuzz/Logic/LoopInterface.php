@@ -72,6 +72,8 @@ interface LoopInterface
      */
     public function setBuzzWord($word);
 
+    public function setCollection($collect);
+
     /**
      * loop
      * Provides the main loop of the FizzBuzz program

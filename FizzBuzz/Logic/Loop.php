@@ -70,6 +70,8 @@ class Loop implements LoopInterface
      * @var text
      */
     protected $buzzWord;
+    
+    protected $collection;
 
     /**
      * setCurrentNum
@@ -140,7 +142,7 @@ class Loop implements LoopInterface
 
         return $this;
     }
-    
+
     /**
      * setFizzWord
      * Set the word to be used on fizz
@@ -151,10 +153,10 @@ class Loop implements LoopInterface
     public function setFizzWord($word)
     {
         $this->fizzWord = $word;
-        
+
         return $this;
     }
-    
+
     /**
      * setBuzzWord
      * Set the word to be used on buzz
@@ -165,7 +167,15 @@ class Loop implements LoopInterface
     public function setBuzzWord($word)
     {
         $this->buzzWord = $word;
-        
+
+        return $this;
+    }
+
+    public function setCollection($collect)
+    {
+        $this->collection = $collect;
+
+        var_dump($this->collection);
         return $this;
     }
 
@@ -175,17 +185,17 @@ class Loop implements LoopInterface
      */
     public function loop()
     {
+        
+      foreach ($this->collection as $value) {
 
-        for ($this->currentNum; $this->currentNum <= $this->endNum; $this->currentNum++) {
-
-            if ($this->currentNum % $this->fizzNum == 0 && $this->currentNum % $this->buzzNum == 0) {
+            if ($value->getNumber() % $this->fizzNum == 0 && $value->getNumber() % $this->buzzNum == 0) {
                 $this->output->fizzBuzz($this->fizzWord, $this->buzzWord);
-            } elseif ($this->currentNum % $this->fizzNum == 0) {
-                $this->output->fizz($this->fizzWord);
-            } elseif ($this->currentNum % $this->buzzNum == 0) {
+            } elseif ($value->getNumber() % $this->buzzNum == 0) {
                 $this->output->buzz($this->buzzWord);
+            } elseif ($value->getNumber() % $this->fizzNum == 0) {
+                $this->output->fizz($this->fizzWord);
             } else {
-                $this->output->defaultOutput($this->currentNum);
+                $this->output->defaultOutput($value->getNumber());
             }
         }
     }
