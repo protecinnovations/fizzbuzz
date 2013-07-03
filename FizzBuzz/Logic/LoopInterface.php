@@ -9,11 +9,17 @@ use \FizzBuzz\Output\OutputInterface;
  * 
  * @package FizzBuzz\Logic
  * @author Protec Innovations <support@protecinnovations.co.uk>
- * @copyright 2012 - 2013 Protec Innovations
+ * @copyright 2013 Protec Innovations
  */
 interface LoopInterface
 {
 
+    /**
+     * setCurrentNum
+     * Set the surrent number
+     * 
+     * @param int $i
+     */
     public function setCurrentNum($i);
 
     /**

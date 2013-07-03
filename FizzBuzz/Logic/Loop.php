@@ -10,7 +10,7 @@ use \FizzBuzz\Output\OutputInterface;
  *
  * @package FizzBuzz\Logic
  * @author Protec Innovations <support@protecinnovations.co.uk>
- * @copyright 2012 - 2013 Protec Innovations
+ * @copyright 2013 Protec Innovations
  */
 class Loop implements LoopInterface
 {
@@ -21,7 +21,7 @@ class Loop implements LoopInterface
      * 
      * @var int
      */
-    public $currentNum;
+    protected $currentNum;
 
     /**
      * $endNum
@@ -29,7 +29,7 @@ class Loop implements LoopInterface
      * 
      * @var int
      */
-    public $endNum;
+    protected $endNum;
 
     /**
      * $output
@@ -37,7 +37,7 @@ class Loop implements LoopInterface
      * 
      * @var \FizzBuzz\Output\OutputInterface
      */
-    public $output;
+    protected $output;
 
     /**
      * $fizzNum
@@ -45,7 +45,7 @@ class Loop implements LoopInterface
      * 
      * @var int
      */
-    public $fizzNum;
+    protected $fizzNum;
 
     /**
      * $buzzNum
@@ -53,7 +53,7 @@ class Loop implements LoopInterface
      * 
      * @var int
      */
-    public $buzzNum;
+    protected $buzzNum;
 
     /**
      * $fizzWord
@@ -61,7 +61,7 @@ class Loop implements LoopInterface
      * 
      * @var text 
      */
-    public $fizzWord;
+    protected $fizzWord;
 
     /**
      * $buzzWord
@@ -69,7 +69,7 @@ class Loop implements LoopInterface
      * 
      * @var text
      */
-    public $buzzWord;
+    protected $buzzWord;
 
     /**
      * setCurrentNum
