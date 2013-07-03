@@ -2,6 +2,7 @@
 
 namespace FizzBuzz\Logic;
 
+use \FizzBuzz\Logic\LoopInterface;
 use \FizzBuzz\Output\OutputInterface;
 
 /**
@@ -11,7 +12,7 @@ use \FizzBuzz\Output\OutputInterface;
  * @author Protec Innovations <support@protecinnovations.co.uk>
  * @copyright 2012 - 2013 Protec Innovations
  */
-class Loop
+class Loop implements LoopInterface
 {
 
     /**
