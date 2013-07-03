@@ -16,7 +16,7 @@ $loop->setCurrentNum(1);
 $loop->setEndNum(100);
 $loop->setBuzzNum(5);
 $loop->setFizzNum(3);
-$loop->setFizzWord('bob');
+$loop->setFizzWord('Fizz');
 $loop->setBuzzWord('Buzz');
 $loop->setOutput($printer);
 
@@ -32,7 +32,7 @@ $options = array(
 for ($i = 0; $i < count($argv); $i++) {
     $arg = $argv[$i];
 
-    if (substr($arg, 0, 1) != '--') {
+    if (substr($arg, 0, 2) != '--') {
         continue;
     }
 
