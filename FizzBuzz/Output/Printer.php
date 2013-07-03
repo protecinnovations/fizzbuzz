@@ -9,7 +9,7 @@ use \FizzBuzz\Output\OutputInterface;
  * 
  * @package FizzBuzz\Output
  * @author Protec Innovations <support@protecinnovations.co.uk>
- * @copyright 2012 - 2013 Protec Innovations
+ * @copyright 2013 Protec Innovations
  */
 class Printer implements OutputInterface
 {
@@ -65,7 +65,7 @@ class Printer implements OutputInterface
      * 
      * @param mixed $var
      */
-    private function printVar($var)
+    protected function printVar($var)
     {
         echo sprintf("%s\n", $var);
     }
