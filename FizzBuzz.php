@@ -16,9 +16,13 @@ $loop->setCurrentNum(1);
 $loop->setEndNum(100);
 $loop->setBuzzNum(5);
 $loop->setFizzNum(3);
+$loop->setFizzWord('bob');
+$loop->setBuzzWord('Buzz');
 $loop->setOutput($printer);
 
 $options = array(
+    '--fizzword',
+    '--buzzword',
     '--fizznum',
     '--buzznum',
     '--start',
@@ -34,6 +38,12 @@ for ($i = 0; $i < count($argv); $i++) {
 
     if (in_array($arg, $options)) {
         switch ($arg) {
+            case '--fizzword':
+                $loop->setFizzWord($argv[$i + 1]);
+                break;
+            case '--buzzword':
+                $loop->setBuzzWord($argv[$i + 1]);
+                break;
             case '--fizznum':
                 if (is_numeric($argv[$i + 1])) {
                     $loop->setFizzNum($argv[$i + 1]);

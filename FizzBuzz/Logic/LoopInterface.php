@@ -49,6 +49,24 @@ interface LoopInterface
     public function setBuzzNum($i);
 
     /**
+     * setFizzWord
+     * Set the word to be used on fizz
+     * 
+     * @param text $word
+     * @return \FizzBuzz\Logic\Loop
+     */
+    public function setFizzWord($word);
+
+    /**
+     * setBuzzWord
+     * Set the word to be used on buzz
+     * 
+     * @param word $word
+     * @return \FizzBuzz\Logic\Loop
+     */
+    public function setBuzzWord($word);
+
+    /**
      * loop
      * Provides the main loop of the FizzBuzz program
      */

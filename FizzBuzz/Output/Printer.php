@@ -14,17 +14,15 @@ use \FizzBuzz\Output\OutputInterface;
 class Printer implements OutputInterface
 {
 
-    const BUZZ_WORD = 'Buzz';
-    const FIZZ_WORD = 'Fizz';
-
     /**
      * buzz
-     * 
      * Echo buzz
+     * 
+     * @param text $buzzWord
      */
-    public function buzz()
+    public function buzz($buzzWord)
     {
-        $this->printVar(self::BUZZ_WORD);
+        $this->printVar($buzzWord);
     }
 
     /**
@@ -40,20 +38,25 @@ class Printer implements OutputInterface
 
     /**
      * fizz
-     * Echo fizz 
+     * Echo fizz
+     * 
+     * @param text $fizzWord
      */
-    public function fizz()
+    public function fizz($fizzWord)
     {
-        $this->printVar(self::FIZZ_WORD);
+        $this->printVar($fizzWord);
     }
 
     /**
      * fizzBuzz
-     * Echo fizzbuzz
+     * echo fizzbuzz words
+     * 
+     * @param text $fizzWord
+     * @param text $buzzWord
      */
-    public function fizzBuzz()
+    public function fizzBuzz($fizzWord, $buzzWord)
     {
-        $this->printVar(self::FIZZ_WORD . self::BUZZ_WORD);
+        $this->printVar($fizzWord . $buzzWord);
     }
 
     /**

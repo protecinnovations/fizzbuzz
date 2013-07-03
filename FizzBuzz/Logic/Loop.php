@@ -56,6 +56,22 @@ class Loop implements LoopInterface
     public $buzzNum;
 
     /**
+     * $fizzWord
+     * Used to store the fizz word
+     * 
+     * @var text 
+     */
+    public $fizzWord;
+
+    /**
+     * $buzzWord
+     * Used to store the buzz word
+     * 
+     * @var text
+     */
+    public $buzzWord;
+
+    /**
      * setCurrentNum
      * Set the current number
      * 
@@ -124,6 +140,34 @@ class Loop implements LoopInterface
 
         return $this;
     }
+    
+    /**
+     * setFizzWord
+     * Set the word to be used on fizz
+     * 
+     * @param text $word
+     * @return \FizzBuzz\Logic\Loop
+     */
+    public function setFizzWord($word)
+    {
+        $this->fizzWord = $word;
+        
+        return $this;
+    }
+    
+    /**
+     * setBuzzWord
+     * Set the word to be used on buzz
+     * 
+     * @param word $word
+     * @return \FizzBuzz\Logic\Loop
+     */
+    public function setBuzzWord($word)
+    {
+        $this->buzzWord = $word;
+        
+        return $this;
+    }
 
     /**
      * loop
@@ -135,11 +179,11 @@ class Loop implements LoopInterface
         for ($this->currentNum; $this->currentNum <= $this->endNum; $this->currentNum++) {
 
             if ($this->currentNum % $this->fizzNum == 0 && $this->currentNum % $this->buzzNum == 0) {
-                $this->output->fizzBuzz();
+                $this->output->fizzBuzz($this->fizzWord, $this->buzzWord);
             } elseif ($this->currentNum % $this->fizzNum == 0) {
-                $this->output->fizz();
+                $this->output->fizz($this->fizzWord);
             } elseif ($this->currentNum % $this->buzzNum == 0) {
-                $this->output->buzz();
+                $this->output->buzz($this->buzzWord);
             } else {
                 $this->output->defaultOutput($this->currentNum);
             }
