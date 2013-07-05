@@ -16,26 +16,20 @@ interface OutputInterface
      * fizzBuzz
      * Perform the fizzBuzz output
      * 
-     * @param text $fizzWord
-     * @param text $buzzWord
      */
-    public function fizzBuzz($fizzWord, $buzzWord);
+    public function fizzBuzz();
 
     /**
      * fizz
      * Perform the fizz output
-     * 
-     * @param text $fizzWord
      */
-    public function fizz($fizzWord);
+    public function fizz();
 
     /**
      * buzz
      * Perform the buzz output
-     * 
-     * @param text $buzzWord
      */
-    public function buzz($buzzWord);
+    public function buzz();
 
     /**
      * defaultOutput

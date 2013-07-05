@@ -67,7 +67,7 @@ class CollectionFactory
         for ($i = $this->startPoint; $i <= $this->endPoint; $i++) {
 
             $num = new NumberFactory;
-            
+
             $number = $num->create($i);
 
             $collection->addItem($number);

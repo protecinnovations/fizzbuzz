@@ -16,7 +16,7 @@ interface LoopInterface
 
     /**
      * setCurrentNum
-     * Set the surrent number
+     * Set the current number
      * 
      * @param int $i
      */
@@ -55,23 +55,11 @@ interface LoopInterface
     public function setBuzzNum($i);
 
     /**
-     * setFizzWord
-     * Set the word to be used on fizz
+     * setCollection
+     * Set the collection
      * 
-     * @param text $word
-     * @return \FizzBuzz\Logic\Loop
+     * @param array $collect
      */
-    public function setFizzWord($word);
-
-    /**
-     * setBuzzWord
-     * Set the word to be used on buzz
-     * 
-     * @param word $word
-     * @return \FizzBuzz\Logic\Loop
-     */
-    public function setBuzzWord($word);
-
     public function setCollection($collect);
 
     /**

@@ -70,7 +70,13 @@ class Loop implements LoopInterface
      * @var text
      */
     protected $buzzWord;
-    
+
+    /**
+     * $collection
+     * Used to store the collection of numbers
+     * 
+     * @var array
+     */
     protected $collection;
 
     /**
@@ -144,38 +150,16 @@ class Loop implements LoopInterface
     }
 
     /**
-     * setFizzWord
-     * Set the word to be used on fizz
+     * setCollection
+     * Set the collection of numbers
      * 
-     * @param text $word
+     * @param array $collect
      * @return \FizzBuzz\Logic\Loop
      */
-    public function setFizzWord($word)
-    {
-        $this->fizzWord = $word;
-
-        return $this;
-    }
-
-    /**
-     * setBuzzWord
-     * Set the word to be used on buzz
-     * 
-     * @param word $word
-     * @return \FizzBuzz\Logic\Loop
-     */
-    public function setBuzzWord($word)
-    {
-        $this->buzzWord = $word;
-
-        return $this;
-    }
-
     public function setCollection($collect)
     {
         $this->collection = $collect;
 
-        var_dump($this->collection);
         return $this;
     }
 
@@ -185,15 +169,15 @@ class Loop implements LoopInterface
      */
     public function loop()
     {
-        
-      foreach ($this->collection as $value) {
+
+        foreach ($this->collection as $value) {
 
             if ($value->getNumber() % $this->fizzNum == 0 && $value->getNumber() % $this->buzzNum == 0) {
-                $this->output->fizzBuzz($this->fizzWord, $this->buzzWord);
+                $this->output->fizzBuzz();
             } elseif ($value->getNumber() % $this->buzzNum == 0) {
-                $this->output->buzz($this->buzzWord);
+                $this->output->buzz();
             } elseif ($value->getNumber() % $this->fizzNum == 0) {
-                $this->output->fizz($this->fizzWord);
+                $this->output->fizz();
             } else {
                 $this->output->defaultOutput($value->getNumber());
             }

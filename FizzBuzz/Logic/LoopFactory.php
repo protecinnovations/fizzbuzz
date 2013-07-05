@@ -9,15 +9,77 @@ use \FizzBuzz\Output\OutputInterface;
 class LoopFactory
 {
 
+    /**
+     * $startNum
+     * Used to store the start number for the loop
+     * 
+     * @var int
+     */
     protected $startNum = 1;
+
+    /**
+     * $endNum
+     * Used to store the end number for the loop
+     * 
+     * @var int
+     */
     protected $endNum = 100;
+
+    /**
+     * $buzzNum
+     * Used to store the buzz number for the loop
+     * 
+     * @var int
+     */
     protected $buzzNum = 5;
+
+    /**
+     * $fizzNum
+     * Used to store the fizz number for the loop
+     * 
+     * @var int
+     */
     protected $fizzNum = 3;
+
+    /**
+     * $fizzWord
+     * Used to store the fizz word for the loop
+     * 
+     * @var text
+     */
     protected $fizzWord = 'Fizz';
+
+    /**
+     * $buzzWord
+     * Used to store the buzz word for the loop
+     * 
+     * @var text
+     */
     protected $buzzWord = 'Buzz';
+
+    /**
+     * $printer
+     * Used to store the printer instance
+     * 
+     * @var \FizzBuzz\Output\Printer
+     */
     protected $printer = null;
+
+    /**
+     * $collection
+     * Used to store the collection of numbers for the loop
+     * 
+     * @var array
+     */
     protected $collection;
 
+    /**
+     * setStartNum
+     * Set the start number
+     * 
+     * @param int $startNum
+     * @return \FizzBuzz\Logic\LoopFactory
+     */
     public function setStartNum($startNum)
     {
         $this->startNum = $startNum;
@@ -25,6 +87,13 @@ class LoopFactory
         return $this;
     }
 
+    /**
+     * setEndNum
+     * Set the end number
+     * 
+     * @param int $endNum
+     * @return \FizzBuzz\Logic\LoopFactory
+     */
     public function setEndNum($endNum)
     {
         $this->endNum = $endNum;
@@ -32,6 +101,13 @@ class LoopFactory
         return $this;
     }
 
+    /**
+     * setBuzzNum
+     * Set the buzz number
+     * 
+     * @param int $buzzNum
+     * @return \FizzBuzz\Logic\LoopFactory
+     */
     public function setBuzzNum($buzzNum)
     {
         $this->buzzNum = $buzzNum;
@@ -39,6 +115,13 @@ class LoopFactory
         return $this;
     }
 
+    /**
+     * setFizzNum
+     * Set the fizz number
+     * 
+     * @param int $fizzNum
+     * @return \FizzBuzz\Logic\LoopFactory
+     */
     public function setFizzNum($fizzNum)
     {
         $this->fizzNum = $fizzNum;
@@ -46,20 +129,13 @@ class LoopFactory
         return $this;
     }
 
-    public function setFizzWord($fizzWord)
-    {
-        $this->fizzWord = $fizzWord;
-
-        return $this;
-    }
-
-    public function setBuzzWord($buzzWord)
-    {
-        $this->buzzWord = $buzzWord;
-
-        return $this;
-    }
-
+    /**
+     * setPrinter
+     * Set the printer
+     * 
+     * @param \FizzBuzz\Output\OutputInterface $printer
+     * @return \FizzBuzz\Logic\LoopFactory
+     */
     public function setPrinter(OutputInterface $printer)
     {
         $this->printer = $printer;
@@ -67,11 +143,24 @@ class LoopFactory
         return $this;
     }
 
+    /**
+     * setCollection
+     * Set the collection of numbers
+     * 
+     * @param array $collect
+     */
     public function setCollection($collect)
     {
         $this->collection = $collect;
     }
 
+    /**
+     * create
+     * Create the loop
+     * 
+     * @return \FizzBuzz\Logic\Loop
+     * @throws Exception
+     */
     public function create()
     {
 
@@ -85,8 +174,6 @@ class LoopFactory
         $loop->setEndNum($this->endNum);
         $loop->setBuzzNum($this->buzzNum);
         $loop->setFizzNum($this->fizzNum);
-        $loop->setFizzWord($this->fizzWord);
-        $loop->setBuzzWord($this->buzzWord);
         $loop->setOutput($this->printer);
         $loop->setCollection($this->collection);
 

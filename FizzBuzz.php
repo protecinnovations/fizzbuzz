@@ -7,10 +7,12 @@ $classLoader->register();
 
 use \FizzBuzz\Logic\LoopFactory;
 use \FizzBuzz\Model\CollectionFactory;
+use \FizzBuzz\Output\OutputFactory;
 use \FizzBuzz\Output\Printer;
 
 $collectionFactory = new CollectionFactory();
 $loopFactory = new LoopFactory();
+$outputFactory = new OutputFactory();
 $printer = new Printer();
 
 $options = array(
@@ -32,10 +34,10 @@ for ($i = 0; $i < count($argv); $i++) {
     if (in_array($arg, $options)) {
         switch ($arg) {
             case '--fizzword':
-                $loopFactory->setFizzWord($argv[$i + 1]);
+                $outputFactory->setFizzWord($argv[$i + 1]);
                 break;
             case '--buzzword':
-                $loopFactory->setBuzzWord($argv[$i + 1]);
+                $outputFactory->setBuzzWord($argv[$i + 1]);
                 break;
             case '--fizznum':
                 if (is_numeric($argv[$i + 1])) {
@@ -64,6 +66,8 @@ for ($i = 0; $i < count($argv); $i++) {
 $collection = $collectionFactory->create();
 
 $loopFactory->setCollection($collection);
+
+$printer->setFactory($outputFactory);
 
 $loopFactory->setPrinter($printer);
 

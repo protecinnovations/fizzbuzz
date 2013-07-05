@@ -5,6 +5,12 @@ namespace FizzBuzz\Model;
 interface CollectionInterface
 {
 
+    /**
+     * setCollection
+     * Set the collection array
+     * 
+     * @param array $value
+     */
     public function setCollection(array $value);
 
     /**
@@ -15,40 +21,4 @@ interface CollectionInterface
      * @return \FizzBuzz\Model\Collection
      */
     public function addItem(NumberProviderInterface $item);
-
-    /**
-     * current
-     * Returns the current item
-     * 
-     * @return NumberProviderInterface
-     */
-    public function current();
-
-    /**
-     * key
-     * Returns the key of the item
-     * 
-     * @return key
-     */
-    public function key();
-
-    /**
-     * next
-     * Moves onto the next item in array
-     */
-    public function next();
-
-    /**
-     * rewind
-     * Returns to the start of the iterator
-     */
-    public function rewind();
-
-    /**
-     * valid
-     * Checks if item exsists
-     * 
-     * @return boolen
-     */
-    public function valid();
 }

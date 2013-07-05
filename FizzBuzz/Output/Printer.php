@@ -15,14 +15,36 @@ class Printer implements OutputInterface
 {
 
     /**
+     * $factory
+     * Stores the OutputFactory
+     * 
+     * @var \FizzBuzz\Output\OutputFactory
+     */
+    protected $factory;
+
+    /**
+     * setFactory
+     * Sets the OutputFactory
+     * 
+     * @param \FizzBuzz\Output\Factory $outputFactory
+     * @return \FizzBuzz\Output\Printer
+     */
+    public function setFactory($outputFactory)
+    {
+
+        $this->factory = $outputFactory;
+
+        return $this;
+    }
+
+    /**
      * buzz
      * Echo buzz
-     * 
-     * @param text $buzzWord
      */
-    public function buzz($buzzWord)
+    public function buzz()
     {
-        $this->printVar($buzzWord);
+
+        $this->printVar($this->factory->createBuzz());
     }
 
     /**
@@ -39,24 +61,21 @@ class Printer implements OutputInterface
     /**
      * fizz
      * Echo fizz
-     * 
-     * @param text $fizzWord
      */
-    public function fizz($fizzWord)
+    public function fizz()
     {
-        $this->printVar($fizzWord);
+
+        $this->printVar($this->factory->createFizz());
     }
 
     /**
      * fizzBuzz
      * echo fizzbuzz words
-     * 
-     * @param text $fizzWord
-     * @param text $buzzWord
      */
-    public function fizzBuzz($fizzWord, $buzzWord)
+    public function fizzBuzz()
     {
-        $this->printVar($fizzWord . $buzzWord);
+
+        $this->printVar($this->factory->createFizzBuzz());
     }
 
     /**
