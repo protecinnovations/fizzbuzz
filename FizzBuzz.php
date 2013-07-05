@@ -1,5 +1,4 @@
 <?php
-
 require_once('SplClassLoader.php');
 
 $classLoader = new SplClassLoader('FizzBuzz', __DIR__);
@@ -7,13 +6,13 @@ $classLoader->register();
 
 use \FizzBuzz\Logic\LoopFactory;
 use \FizzBuzz\Model\CollectionFactory;
+use \FizzBuzz\Model\NumberFactory;
 use \FizzBuzz\Output\OutputFactory;
-use \FizzBuzz\Output\Printer;
 
 $collectionFactory = new CollectionFactory();
 $loopFactory = new LoopFactory();
+$numberFactory = new NumberFactory();
 $outputFactory = new OutputFactory();
-$printer = new Printer();
 
 $options = array(
     '--fizzword',
@@ -63,12 +62,12 @@ for ($i = 0; $i < count($argv); $i++) {
     }
 }
 
+$collectionFactory->setNumFactory($numberFactory);
+
 $collection = $collectionFactory->create();
 
 $loopFactory->setCollection($collection);
 
-$printer->setFactory($outputFactory);
-
-$loopFactory->setPrinter($printer);
+$loopFactory->setPrinter($outputFactory->create());
 
 $loopFactory->create()->loop();

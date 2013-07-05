@@ -2,9 +2,18 @@
 
 namespace FizzBuzz\Model;
 
+use \FizzBuzz\Model\NumberProviderInterface;
+
+/**
+ * CollectionInterface
+ * 
+ * @package FizzBuzz\Model
+ * @author Protec Innovations <support@protecinnovations.co.uk>
+ * @copyright 2013 Protec Innovations
+ */
+
 interface CollectionInterface
 {
-
     /**
      * setCollection
      * Set the collection array

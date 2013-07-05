@@ -2,23 +2,22 @@
 
 namespace FizzBuzz\Model;
 
-use \FizzBuzz\Model\NumberProviderInterface;
-
 /**
- * NumberSetterInterface
+ * NumberFactoryInterface
  * 
  * @package FizzBuzz\Model
  * @author Protec Innovations <support@protecinnovations.co.uk>
  * @copyright 2013 Protec Innovations
  */
 
-interface NumberSetterInterface extends NumberProviderInterface
+interface NumberFactoryInterface
 {
     /**
-     * setNumber
-     * Set number
+     * create
+     * Create the numbers
      * 
      * @param int $number
+     * @return \FizzBuzz\Model\Number
      */
-    public function setNumber($number);
+    public function create($number);
 }

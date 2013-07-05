@@ -5,9 +5,16 @@ namespace FizzBuzz\Model;
 use \Iterator;
 use \FizzBuzz\Model\NumberProviderInterface;
 
+/**
+ * Collection
+ * 
+ * @package FizzBuzz\Model
+ * @author Protec Innovations <support@protecinnovations.co.uk>
+ * @copyright 2013 Protec Innovations
+ */
+
 class Collection implements Iterator, CollectionInterface
 {
-
     /**
      * $collection
      * Setup the collection array
@@ -33,7 +40,6 @@ class Collection implements Iterator, CollectionInterface
      */
     public function setCollection(array $value)
     {
-
         $this->collection = $value;
 
         return $this;
@@ -48,7 +54,6 @@ class Collection implements Iterator, CollectionInterface
      */
     public function addItem(NumberProviderInterface $item)
     {
-
         $this->collection[] = $item;
 
         return $this;

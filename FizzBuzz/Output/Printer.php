@@ -13,38 +13,55 @@ use \FizzBuzz\Output\OutputInterface;
  */
 class Printer implements OutputInterface
 {
-
     /**
-     * $factory
-     * Stores the OutputFactory
+     * $fizzWord
+     * Used to store the fizz word
      * 
-     * @var \FizzBuzz\Output\OutputFactory
+     * @var text
      */
-    protected $factory;
-
+    protected $fizzWord;
+    
     /**
-     * setFactory
-     * Sets the OutputFactory
+     * $buzzWord
+     * Used to store the buzz word
      * 
-     * @param \FizzBuzz\Output\Factory $outputFactory
-     * @return \FizzBuzz\Output\Printer
+     * @var text
      */
-    public function setFactory($outputFactory)
+    protected $buzzWord;
+    
+    /**
+     * setFizzWord
+     * Set the word to be used for fizz
+     * 
+     * @param text $fizz
+     */
+    public function setFizzWord($fizz)
     {
-
-        $this->factory = $outputFactory;
-
+        $this->fizzWord = $fizz;
+        
         return $this;
     }
-
+    
+    /**
+     * setBuzzWord
+     * Set the word to be used for buzz
+     * 
+     * @param text $buzz
+     */
+    public function setBuzzWord($buzz)
+    {
+        $this->buzzWord = $buzz;
+        
+        return $this;
+    }
+    
     /**
      * buzz
      * Echo buzz
      */
     public function buzz()
     {
-
-        $this->printVar($this->factory->createBuzz());
+        $this->printVar($this->buzzWord);
     }
 
     /**
@@ -64,8 +81,7 @@ class Printer implements OutputInterface
      */
     public function fizz()
     {
-
-        $this->printVar($this->factory->createFizz());
+        $this->printVar($this->fizzWord);
     }
 
     /**
@@ -74,8 +90,7 @@ class Printer implements OutputInterface
      */
     public function fizzBuzz()
     {
-
-        $this->printVar($this->factory->createFizzBuzz());
+        $this->printVar($this->fizzWord . $this->buzzWord);
     }
 
     /**

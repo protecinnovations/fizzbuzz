@@ -2,6 +2,7 @@
 
 namespace FizzBuzz\Logic;
 
+use \FizzBuzz\Model\CollectionInterface;
 use \FizzBuzz\Output\OutputInterface;
 
 /**
@@ -13,23 +14,6 @@ use \FizzBuzz\Output\OutputInterface;
  */
 interface LoopInterface
 {
-
-    /**
-     * setCurrentNum
-     * Set the current number
-     * 
-     * @param int $i
-     */
-    public function setCurrentNum($i);
-
-    /**
-     * setEndNum
-     * Set the number to end loop on
-     * 
-     * @param int $i
-     */
-    public function setEndNum($i);
-
     /**
      * setOutput
      * Set the output handler
@@ -60,7 +44,7 @@ interface LoopInterface
      * 
      * @param array $collect
      */
-    public function setCollection($collect);
+    public function setCollection(CollectionInterface $collect);
 
     /**
      * loop

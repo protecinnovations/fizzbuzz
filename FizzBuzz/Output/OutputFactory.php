@@ -2,11 +2,18 @@
 
 namespace FizzBuzz\Output;
 
-use \FizzBuzz\Output;
+use \FizzBuzz\Output\OutputFactoryInterface;
 
-class OutputFactory
+/**
+ * OutputFactory
+ * 
+ * @package FizzBuzz\Output
+ * @author Protec Innovations <support@protecinnovations.co.uk>
+ * @copyright 2013 Protec Innovations
+ */
+
+class OutputFactory implements OutputFactoryInterface
 {
-
     /**
      * $buzzWord
      * Store the buzz word
@@ -32,7 +39,6 @@ class OutputFactory
      */
     public function setBuzzWord($buzzWord)
     {
-
         $this->buzzWord = $buzzWord;
 
         return $this;
@@ -47,46 +53,24 @@ class OutputFactory
      */
     public function setFizzWord($fizzWord)
     {
-
         $this->fizzWord = $fizzWord;
 
         return $this;
     }
 
     /**
-     * createBuzz
-     * Allow access to buzz word
+     * create
+     * Create the printer
      * 
-     * @return text
+     * @return \FizzBuzz\Output\Printer
      */
-    public function createBuzz()
+    public function create()
     {
-
-        return $this->buzzWord;
+        $printer = new Printer();
+        
+        $printer->setBuzzWord($this->buzzWord);
+        $printer->setFizzWord($this->fizzWord);
+        
+        return $printer;
     }
-
-    /**
-     * createFizz
-     * Allow access to fizz word
-     * 
-     * @return text
-     */
-    public function createFizz()
-    {
-
-        return $this->fizzWord;
-    }
-
-    /**
-     * createFizzBuzz
-     * Allow access to both the fizz and buzz word
-     * 
-     * @return text
-     */
-    public function createFizzBuzz()
-    {
-
-        return $this->fizzWord . $this->buzzWord;
-    }
-
 }

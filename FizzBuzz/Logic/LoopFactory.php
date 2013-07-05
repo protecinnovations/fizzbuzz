@@ -4,27 +4,19 @@ namespace FizzBuzz\Logic;
 
 use \Exception;
 use \FizzBuzz\Logic\Loop;
+use \FizzBuzz\Model\CollectionInterface;
 use \FizzBuzz\Output\OutputInterface;
 
-class LoopFactory
+/**
+ * LoopFactory
+ * 
+ * @package FizzBuzz\Logic
+ * @author Protec Innovations <support@protecinnovations.co.uk>
+ * @copyright 2013 Protec Innovations
+ */
+
+class LoopFactory implements LoopFactoryInterface
 {
-
-    /**
-     * $startNum
-     * Used to store the start number for the loop
-     * 
-     * @var int
-     */
-    protected $startNum = 1;
-
-    /**
-     * $endNum
-     * Used to store the end number for the loop
-     * 
-     * @var int
-     */
-    protected $endNum = 100;
-
     /**
      * $buzzNum
      * Used to store the buzz number for the loop
@@ -42,22 +34,6 @@ class LoopFactory
     protected $fizzNum = 3;
 
     /**
-     * $fizzWord
-     * Used to store the fizz word for the loop
-     * 
-     * @var text
-     */
-    protected $fizzWord = 'Fizz';
-
-    /**
-     * $buzzWord
-     * Used to store the buzz word for the loop
-     * 
-     * @var text
-     */
-    protected $buzzWord = 'Buzz';
-
-    /**
      * $printer
      * Used to store the printer instance
      * 
@@ -72,34 +48,6 @@ class LoopFactory
      * @var array
      */
     protected $collection;
-
-    /**
-     * setStartNum
-     * Set the start number
-     * 
-     * @param int $startNum
-     * @return \FizzBuzz\Logic\LoopFactory
-     */
-    public function setStartNum($startNum)
-    {
-        $this->startNum = $startNum;
-
-        return $this;
-    }
-
-    /**
-     * setEndNum
-     * Set the end number
-     * 
-     * @param int $endNum
-     * @return \FizzBuzz\Logic\LoopFactory
-     */
-    public function setEndNum($endNum)
-    {
-        $this->endNum = $endNum;
-
-        return $this;
-    }
 
     /**
      * setBuzzNum
@@ -149,9 +97,11 @@ class LoopFactory
      * 
      * @param array $collect
      */
-    public function setCollection($collect)
+    public function setCollection(CollectionInterface $collect)
     {
         $this->collection = $collect;
+
+        return $this;
     }
 
     /**
@@ -163,6 +113,9 @@ class LoopFactory
      */
     public function create()
     {
+        if (is_null($this->collection)) {
+            throw new Exception('Collection Must be created');
+        }
 
         if (is_null($this->printer)) {
             throw new Exception('Must have a printer.');
@@ -170,8 +123,6 @@ class LoopFactory
 
         $loop = new Loop();
 
-        $loop->setCurrentNum($this->startNum);
-        $loop->setEndNum($this->endNum);
         $loop->setBuzzNum($this->buzzNum);
         $loop->setFizzNum($this->fizzNum);
         $loop->setOutput($this->printer);

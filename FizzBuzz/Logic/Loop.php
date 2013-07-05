@@ -3,6 +3,7 @@
 namespace FizzBuzz\Logic;
 
 use \FizzBuzz\Logic\LoopInterface;
+use \FizzBuzz\Model\CollectionInterface;
 use \FizzBuzz\Output\OutputInterface;
 
 /**
@@ -14,23 +15,6 @@ use \FizzBuzz\Output\OutputInterface;
  */
 class Loop implements LoopInterface
 {
-
-    /**
-     * $currentNum
-     * Used to store the current number
-     * 
-     * @var int
-     */
-    protected $currentNum;
-
-    /**
-     * $endNum
-     * Used to store the end number
-     * 
-     * @var int
-     */
-    protected $endNum;
-
     /**
      * $output
      * Used to store the output
@@ -56,56 +40,12 @@ class Loop implements LoopInterface
     protected $buzzNum;
 
     /**
-     * $fizzWord
-     * Used to store the fizz word
-     * 
-     * @var text 
-     */
-    protected $fizzWord;
-
-    /**
-     * $buzzWord
-     * Used to store the buzz word
-     * 
-     * @var text
-     */
-    protected $buzzWord;
-
-    /**
      * $collection
      * Used to store the collection of numbers
      * 
      * @var array
      */
     protected $collection;
-
-    /**
-     * setCurrentNum
-     * Set the current number
-     * 
-     * @param int $i
-     * @return \FizzBuzz\Logic\Loop
-     */
-    public function setCurrentNum($i)
-    {
-        $this->currentNum = $i;
-
-        return $this;
-    }
-
-    /**
-     * setEndNum
-     * Set the number to end loop on
-     * 
-     * @param int $i
-     * @return \FizzBuzz\Logic\Loop
-     */
-    public function setEndNum($i)
-    {
-        $this->endNum = $i;
-
-        return $this;
-    }
 
     /**
      * setOutput
@@ -156,7 +96,7 @@ class Loop implements LoopInterface
      * @param array $collect
      * @return \FizzBuzz\Logic\Loop
      */
-    public function setCollection($collect)
+    public function setCollection(CollectionInterface $collect)
     {
         $this->collection = $collect;
 
@@ -169,9 +109,7 @@ class Loop implements LoopInterface
      */
     public function loop()
     {
-
         foreach ($this->collection as $value) {
-
             if ($value->getNumber() % $this->fizzNum == 0 && $value->getNumber() % $this->buzzNum == 0) {
                 $this->output->fizzBuzz();
             } elseif ($value->getNumber() % $this->buzzNum == 0) {
@@ -183,5 +121,4 @@ class Loop implements LoopInterface
             }
         }
     }
-
 }

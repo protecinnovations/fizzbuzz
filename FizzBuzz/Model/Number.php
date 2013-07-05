@@ -4,9 +4,16 @@ namespace FizzBuzz\Model;
 
 use \FizzBuzz\Model\NumberSetterInterface;
 
+/**
+ * Number
+ * 
+ * @package FizzBuzz\Model
+ * @author Protec Innovations <support@protecinnovations.co.uk>
+ * @copyright 2013 Protec Innovations
+ */
+
 class Number implements NumberSetterInterface
 {
-
     /**
      * $number
      * Stores number
