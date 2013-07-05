@@ -3,6 +3,7 @@
 namespace FizzBuzz\Logic;
 
 use \FizzBuzz\Logic\LoopInterface;
+use \FizzBuzz\Model\CollectionInterface;
 use \FizzBuzz\Output\OutputInterface;
 
 /**
@@ -14,23 +15,6 @@ use \FizzBuzz\Output\OutputInterface;
  */
 class Loop implements LoopInterface
 {
-
-    /**
-     * $currentNum
-     * Used to store the current number
-     * 
-     * @var int
-     */
-    protected $currentNum;
-
-    /**
-     * $endNum
-     * Used to store the end number
-     * 
-     * @var int
-     */
-    protected $endNum;
-
     /**
      * $output
      * Used to store the output
@@ -56,48 +40,12 @@ class Loop implements LoopInterface
     protected $buzzNum;
 
     /**
-     * $fizzWord
-     * Used to store the fizz word
+     * $collection
+     * Used to store the collection of numbers
      * 
-     * @var text 
+     * @var array
      */
-    protected $fizzWord;
-
-    /**
-     * $buzzWord
-     * Used to store the buzz word
-     * 
-     * @var text
-     */
-    protected $buzzWord;
-
-    /**
-     * setCurrentNum
-     * Set the current number
-     * 
-     * @param int $i
-     * @return \FizzBuzz\Logic\Loop
-     */
-    public function setCurrentNum($i)
-    {
-        $this->currentNum = $i;
-
-        return $this;
-    }
-
-    /**
-     * setEndNum
-     * Set the number to end loop on
-     * 
-     * @param int $i
-     * @return \FizzBuzz\Logic\Loop
-     */
-    public function setEndNum($i)
-    {
-        $this->endNum = $i;
-
-        return $this;
-    }
+    protected $collection;
 
     /**
      * setOutput
@@ -140,32 +88,18 @@ class Loop implements LoopInterface
 
         return $this;
     }
-    
+
     /**
-     * setFizzWord
-     * Set the word to be used on fizz
+     * setCollection
+     * Set the collection of numbers
      * 
-     * @param text $word
+     * @param array $collect
      * @return \FizzBuzz\Logic\Loop
      */
-    public function setFizzWord($word)
+    public function setCollection(CollectionInterface $collect)
     {
-        $this->fizzWord = $word;
-        
-        return $this;
-    }
-    
-    /**
-     * setBuzzWord
-     * Set the word to be used on buzz
-     * 
-     * @param word $word
-     * @return \FizzBuzz\Logic\Loop
-     */
-    public function setBuzzWord($word)
-    {
-        $this->buzzWord = $word;
-        
+        $this->collection = $collect;
+
         return $this;
     }
 
@@ -175,19 +109,16 @@ class Loop implements LoopInterface
      */
     public function loop()
     {
-
-        for ($this->currentNum; $this->currentNum <= $this->endNum; $this->currentNum++) {
-
-            if ($this->currentNum % $this->fizzNum == 0 && $this->currentNum % $this->buzzNum == 0) {
-                $this->output->fizzBuzz($this->fizzWord, $this->buzzWord);
-            } elseif ($this->currentNum % $this->fizzNum == 0) {
-                $this->output->fizz($this->fizzWord);
-            } elseif ($this->currentNum % $this->buzzNum == 0) {
-                $this->output->buzz($this->buzzWord);
+        foreach ($this->collection as $value) {
+            if ($value->getNumber() % $this->fizzNum == 0 && $value->getNumber() % $this->buzzNum == 0) {
+                $this->output->fizzBuzz();
+            } elseif ($value->getNumber() % $this->buzzNum == 0) {
+                $this->output->buzz();
+            } elseif ($value->getNumber() % $this->fizzNum == 0) {
+                $this->output->fizz();
             } else {
-                $this->output->defaultOutput($this->currentNum);
+                $this->output->defaultOutput($value->getNumber());
             }
         }
     }
-
 }

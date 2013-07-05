@@ -2,6 +2,7 @@
 
 namespace FizzBuzz\Logic;
 
+use \FizzBuzz\Model\CollectionInterface;
 use \FizzBuzz\Output\OutputInterface;
 
 /**
@@ -13,23 +14,6 @@ use \FizzBuzz\Output\OutputInterface;
  */
 interface LoopInterface
 {
-
-    /**
-     * setCurrentNum
-     * Set the surrent number
-     * 
-     * @param int $i
-     */
-    public function setCurrentNum($i);
-
-    /**
-     * setEndNum
-     * Set the number to end loop on
-     * 
-     * @param int $i
-     */
-    public function setEndNum($i);
-
     /**
      * setOutput
      * Set the output handler
@@ -55,22 +39,12 @@ interface LoopInterface
     public function setBuzzNum($i);
 
     /**
-     * setFizzWord
-     * Set the word to be used on fizz
+     * setCollection
+     * Set the collection
      * 
-     * @param text $word
-     * @return \FizzBuzz\Logic\Loop
+     * @param array $collect
      */
-    public function setFizzWord($word);
-
-    /**
-     * setBuzzWord
-     * Set the word to be used on buzz
-     * 
-     * @param word $word
-     * @return \FizzBuzz\Logic\Loop
-     */
-    public function setBuzzWord($word);
+    public function setCollection(CollectionInterface $collect);
 
     /**
      * loop

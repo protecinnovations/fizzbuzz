@@ -11,31 +11,40 @@ namespace FizzBuzz\Output;
  */
 interface OutputInterface
 {
+    /**
+     * setFizzWord
+     * Set the word to be used for fizz
+     * 
+     * @param text $fizz
+     */
+    public function setFizzWord($fizz);
+
+    /**
+     * setBuzzWord
+     * Set the word to be used for buzz
+     * 
+     * @param text $buzz
+     */
+    public function setBuzzWord($buzz);
 
     /**
      * fizzBuzz
      * Perform the fizzBuzz output
      * 
-     * @param text $fizzWord
-     * @param text $buzzWord
      */
-    public function fizzBuzz($fizzWord, $buzzWord);
+    public function fizzBuzz();
 
     /**
      * fizz
      * Perform the fizz output
-     * 
-     * @param text $fizzWord
      */
-    public function fizz($fizzWord);
+    public function fizz();
 
     /**
      * buzz
      * Perform the buzz output
-     * 
-     * @param text $buzzWord
      */
-    public function buzz($buzzWord);
+    public function buzz();
 
     /**
      * defaultOutput
