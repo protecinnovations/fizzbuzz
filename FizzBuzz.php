@@ -1,24 +1,18 @@
 <?php
-
 require_once('SplClassLoader.php');
 
 $classLoader = new SplClassLoader('FizzBuzz', __DIR__);
 $classLoader->register();
 
-use \FizzBuzz\Logic\Loop;
-use \FizzBuzz\Output\Printer;
+use \FizzBuzz\Logic\LoopFactory;
+use \FizzBuzz\Model\CollectionFactory;
+use \FizzBuzz\Model\NumberFactory;
+use \FizzBuzz\Output\OutputFactory;
 
-$loop = new Loop();
-$printer = new Printer();
-
-
-$loop->setCurrentNum(1);
-$loop->setEndNum(100);
-$loop->setBuzzNum(5);
-$loop->setFizzNum(3);
-$loop->setFizzWord('Fizz');
-$loop->setBuzzWord('Buzz');
-$loop->setOutput($printer);
+$collectionFactory = new CollectionFactory();
+$loopFactory = new LoopFactory();
+$numberFactory = new NumberFactory();
+$outputFactory = new OutputFactory();
 
 $options = array(
     '--fizzword',
@@ -37,36 +31,42 @@ for ($i = 0; $i < count($argv); $i++) {
     }
 
     if (in_array($arg, $options)) {
+        $option = $argv[$i + 1];
         switch ($arg) {
             case '--fizzword':
-                $loop->setFizzWord($argv[$i + 1]);
+                $outputFactory->setFizzWord($option);
                 break;
             case '--buzzword':
-                $loop->setBuzzWord($argv[$i + 1]);
+                $outputFactory->setBuzzWord($option);
                 break;
             case '--fizznum':
-                if (is_numeric($argv[$i + 1])) {
-                    $loop->setFizzNum($argv[$i + 1]);
+                if (is_numeric($option)) {
+                    $loopFactory->setFizzNum($option);
                 }
                 break;
             case '--buzznum':
-                if (is_numeric($argv[$i + 1])) {
-                    $loop->setBuzzNum($argv[$i + 1]);
+                if (is_numeric($option)) {
+                    $loopFactory->setBuzzNum($option);
                 }
                 break;
             case '--start':
-                if (is_numeric($argv[$i + 1])) {
-                    $loop->setCurrentNum($argv[$i + 1]);
+                if (is_numeric($option)) {
+                    $collectionFactory->setStartPoint($option);
                 }
                 break;
             case '--end':
-                if (is_numeric($argv[$i + 1])) {
-                    $loop->setEndNum($argv[$i + 1]);
+                if (is_numeric($option)) {
+                    $collectionFactory->setEndPoint($option);
                 }
                 break;
         }
     }
 }
 
+$collectionFactory->setNumFactory($numberFactory);
 
-$loop->loop();
+$loopFactory->setCollection($collectionFactory->create());
+
+$loopFactory->setPrinter($outputFactory->create());
+
+$loopFactory->create()->loop();
