@@ -3,6 +3,7 @@
 namespace FizzBuzz\Output;
 
 use \FizzBuzz\Output\OutputFactoryInterface;
+use \FizzBuzz\Output\Printer;
 
 /**
  * OutputFactory

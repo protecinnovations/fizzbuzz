@@ -31,31 +31,32 @@ for ($i = 0; $i < count($argv); $i++) {
     }
 
     if (in_array($arg, $options)) {
+        $num = $argv[$i + 1];
         switch ($arg) {
             case '--fizzword':
-                $outputFactory->setFizzWord($argv[$i + 1]);
+                $outputFactory->setFizzWord($num);
                 break;
             case '--buzzword':
-                $outputFactory->setBuzzWord($argv[$i + 1]);
+                $outputFactory->setBuzzWord($num);
                 break;
             case '--fizznum':
-                if (is_numeric($argv[$i + 1])) {
-                    $loopFactory->setFizzNum($argv[$i + 1]);
+                if (is_numeric($num)) {
+                    $loopFactory->setFizzNum($num);
                 }
                 break;
             case '--buzznum':
-                if (is_numeric($argv[$i + 1])) {
-                    $loopFactory->setBuzzNum($argv[$i + 1]);
+                if (is_numeric($num)) {
+                    $loopFactory->setBuzzNum($num);
                 }
                 break;
             case '--start':
-                if (is_numeric($argv[$i + 1])) {
-                    $collectionFactory->setStartPoint($argv[$i + 1]);
+                if (is_numeric($num)) {
+                    $collectionFactory->setStartPoint($num);
                 }
                 break;
             case '--end':
-                if (is_numeric($argv[$i + 1])) {
-                    $collectionFactory->setEndPoint($argv[$i + 1]);
+                if (is_numeric($num)) {
+                    $collectionFactory->setEndPoint($num);
                 }
                 break;
         }
@@ -64,9 +65,7 @@ for ($i = 0; $i < count($argv); $i++) {
 
 $collectionFactory->setNumFactory($numberFactory);
 
-$collection = $collectionFactory->create();
-
-$loopFactory->setCollection($collection);
+$loopFactory->setCollection($collectionFactory->create());
 
 $loopFactory->setPrinter($outputFactory->create());
 

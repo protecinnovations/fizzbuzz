@@ -2,8 +2,8 @@
 
 namespace FizzBuzz\Model;
 
-use \Iterator;
 use \FizzBuzz\Model\NumberProviderInterface;
+use \Iterator;
 
 /**
  * Collection

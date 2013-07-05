@@ -68,7 +68,7 @@ class CollectionFactory implements CollectionFactoryInterface
     }
 
     /**
-     * setNumberFactory
+     * setNumFactory
      * Used to set the instance of NumberFactory
      * 
      * @param \FizzBuzz\Model\NumberFactoryInterface $numberFactory

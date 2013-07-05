@@ -17,7 +17,7 @@ class Printer implements OutputInterface
      * $fizzWord
      * Used to store the fizz word
      * 
-     * @var text
+     * @var string
      */
     protected $fizzWord;
     
@@ -25,7 +25,7 @@ class Printer implements OutputInterface
      * $buzzWord
      * Used to store the buzz word
      * 
-     * @var text
+     * @var string
      */
     protected $buzzWord;
     
@@ -33,7 +33,7 @@ class Printer implements OutputInterface
      * setFizzWord
      * Set the word to be used for fizz
      * 
-     * @param text $fizz
+     * @param string $fizz
      */
     public function setFizzWord($fizz)
     {
@@ -46,7 +46,7 @@ class Printer implements OutputInterface
      * setBuzzWord
      * Set the word to be used for buzz
      * 
-     * @param text $buzz
+     * @param string $buzz
      */
     public function setBuzzWord($buzz)
     {

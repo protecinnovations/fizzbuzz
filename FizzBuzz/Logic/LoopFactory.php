@@ -4,6 +4,7 @@ namespace FizzBuzz\Logic;
 
 use \Exception;
 use \FizzBuzz\Logic\Loop;
+use \FizzBuzz\Logic\LoopFactoryInterface;
 use \FizzBuzz\Model\CollectionInterface;
 use \FizzBuzz\Output\OutputInterface;
 
