@@ -31,32 +31,32 @@ for ($i = 0; $i < count($argv); $i++) {
     }
 
     if (in_array($arg, $options)) {
-        $num = $argv[$i + 1];
+        $option = $argv[$i + 1];
         switch ($arg) {
             case '--fizzword':
-                $outputFactory->setFizzWord($num);
+                $outputFactory->setFizzWord($option);
                 break;
             case '--buzzword':
-                $outputFactory->setBuzzWord($num);
+                $outputFactory->setBuzzWord($option);
                 break;
             case '--fizznum':
-                if (is_numeric($num)) {
-                    $loopFactory->setFizzNum($num);
+                if (is_numeric($option)) {
+                    $loopFactory->setFizzNum($option);
                 }
                 break;
             case '--buzznum':
-                if (is_numeric($num)) {
-                    $loopFactory->setBuzzNum($num);
+                if (is_numeric($option)) {
+                    $loopFactory->setBuzzNum($option);
                 }
                 break;
             case '--start':
-                if (is_numeric($num)) {
-                    $collectionFactory->setStartPoint($num);
+                if (is_numeric($option)) {
+                    $collectionFactory->setStartPoint($option);
                 }
                 break;
             case '--end':
-                if (is_numeric($num)) {
-                    $collectionFactory->setEndPoint($num);
+                if (is_numeric($option)) {
+                    $collectionFactory->setEndPoint($option);
                 }
                 break;
         }
